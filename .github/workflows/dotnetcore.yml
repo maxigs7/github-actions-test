@@ -24,6 +24,6 @@ jobs:
       run: |
            for f in ./nuget-test/nuget-test/bin/Release/*.nupkg
            do
-             curl -vX PUT -u "maxigs7:${{ secrets.GHPackagesToken }}" -F package=@$f https://nuget.pkg.github.com/[user]/
+             curl -vX PUT -u "maxigs7:${{ secrets.GHPackagesToken }}" -F package=@$f https://nuget.pkg.github.com/maxigs7/
            done
       shell: bash
