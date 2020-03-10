@@ -13,9 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.101
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      uses: rohith/publish-nuget@v2      
+      with:
+        PROJECT_FILE_PATH: nuget-test/nuget-test.csproj      
+    - name: Push Github Package
+      run: dotnet nuget push "nuget-test/nuget-test/bin/Release/github-actions-test.1.0.0.nupkg" --source "github"
