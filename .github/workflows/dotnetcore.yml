@@ -20,5 +20,10 @@ jobs:
       run: dotnet build nuget-test/nuget-test/nuget-test.csproj --configuration Release 
     - name: Pack with dotnet
       run: dotnet pack nuget-test/nuget-test/nuget-test.csproj --configuration Release 
-    - name: Push Github Package
-      run: dotnet nuget push "nuget-test/nuget-test/bin/Release/github-actions-test.1.0.0.nupkg" --source "github"
+    - name: Publish nuget
+      run: |
+           for f in ./nuget-test/nuget-test/bin/Release/*.nupkg
+           do
+             curl -vX PUT -u "maxigs7:${{ secrets.GHPackagesToken }}" -F package=@$f https://nuget.pkg.github.com/[user]/
+           done
+      shell: bash
