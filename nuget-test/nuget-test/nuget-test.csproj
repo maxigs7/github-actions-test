@@ -7,6 +7,9 @@
     <Authors>maxigs7</Authors>
     <Company>MaxDev</Company>
     <Product />
+    <Version>1.0.0</Version>
+    <PackageDescription>This is a test!</PackageDescription>
+    <RepositoryUrl>https://github.com/maxigs7/github-actions-test</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
