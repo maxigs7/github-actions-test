@@ -13,9 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build with dotnet
-      uses: rohith/publish-nuget@v2      
+    - uses: actions/setup-dotnet@v1
       with:
-        PROJECT_FILE_PATH: nuget-test/nuget-test/nuget-test.csproj      
+        dotnet-version: '2.2.103' # Versión del SDK.
+    - name: Build with dotnet
+      run: dotnet pack nuget-test/nuget-test/nuget-test.csproj --configuration Release 
     - name: Push Github Package
       run: dotnet nuget push "nuget-test/nuget-test/bin/Release/github-actions-test.1.0.0.nupkg" --source "github"
