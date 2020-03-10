@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>nuget_test</RootNamespace>
+    <PackageId>NugetTest</PackageId>
+    <Authors>maxigs7</Authors>
+    <Company>MaxDev</Company>
+    <Product />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
