@@ -1,0 +1,21 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build with dotnet
+      uses: rohith/publish-nuget@v2      
+      with:
+        PROJECT_FILE_PATH: nuget-test/nuget-test.csproj      
+    - name: Push Github Package
+      run: dotnet nuget push "nuget-test/nuget-test/bin/Release/github-actions-test.1.0.0.nupkg" --source "github"
